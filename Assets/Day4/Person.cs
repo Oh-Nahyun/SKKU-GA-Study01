@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Person
+public class Person : Animal
 {
     // 속성 (C# : 필드, C++ : 멤버) (변수)
     
@@ -10,10 +10,7 @@ public class Person
     
     // 추상화 -> 은닉화(숨길 건 숨긴다.) -> 캡슐화
     
-    private string _name   = string.Empty; // = "" // (1) 필드 변수
-    private int    _age    = 0;
-    private float  _height = 0f;
-    private double _weight = 0d;
+    private int    _age    = 0; // (1) 필드 변수
     public  bool   HasGlasses = false;
 
     // 생성자 메서드
@@ -36,15 +33,10 @@ public class Person
     }
     
     // 기능 (C# : 메서드) (함수)
-    public void Introduce()
+    public override void Introduce()
     {
         Debug.Log($"안녕하세요. 제 이름은 {_name}이고, 나이는 {_age}입니다. " +
                   $"키와 몸무게는 ({_height}cm/{_weight}kg) 입니다.");
-    }
-
-    public void Run()
-    {
-        Debug.Log($"[{_name} 뛰는 중!] 속도 : {100 - (_height /_weight)}");
     }
     
     // 메서드 오버로딩 : 같은 이름의 메서드를 중복하여 여러 개 만드는 것
