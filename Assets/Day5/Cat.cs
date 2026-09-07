@@ -7,11 +7,18 @@ using UnityEngine;
 // - 재정의 (부모에게 물려받은 메서드를 상황에 맞게 재정의(오버라이딩)하여 사용 가능)
 public class Cat : Animal
 {
+    // 정적 변수 -> new 연산자를 통해서 객체나 구조체를 생성하지 않고 직접 호출 가능
+    //          -> 그리고 클래스(구조체) 자체에 속하는 변수
+    static public int Count = 0;
+    
     public Cat(string name, float height, float weight)
     {
         _name = name;
         _height = height;
         _weight = weight;
+
+        // 고양이가 생성될 때마다 클래스의 정적 변수 count를 up!
+        Count++;
     }
     
     public override void Introduce()
